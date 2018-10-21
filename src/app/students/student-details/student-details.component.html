@@ -1,0 +1,29 @@
+
+<hr>
+<div *ngIf="student; else noStudent">
+    <h3>{{student.name}}'s Details</h3>
+    <br>
+    <div>
+      <div>Student Id: {{student.id}}</div>
+      <div>Name: {{student.name}}</div>
+      <div>Email: {{student.email}}</div>
+      <hr>
+      <div *ngIf="student.courses.length != 0; else noCourses">
+        <h4>Courses:</h4>
+        <div *ngFor="let c of student.courses; let i = index">
+          #{{i+1}} {{c}}
+        </div>
+      </div>
+      <ng-template #noCourses>
+        <h4>No registered courses !</h4>
+      </ng-template>
+      <div>
+          <input placeholder="course" #courseInput />
+          <button (click)="onAddCourse()">Add Course</button>
+        </div>
+    </div>
+</div>
+<ng-template #noStudent>
+  <h3>Please select student !</h3>
+</ng-template>
+<br><br>

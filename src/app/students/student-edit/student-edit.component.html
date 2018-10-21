@@ -1,0 +1,15 @@
+<hr>
+<div *ngIf="student; else noStudent">
+    <h3>Edit {{student.name}}'s Details</h3>
+    <br>
+    <div>
+      <div>Student Id: <input [(ngModel)]="student.id"></div>
+      <div>Name: <input [(ngModel)]="student.name"></div>
+      <div>Email: <input [(ngModel)]="student.email"></div>
+      <hr>
+    </div>
+</div>
+<ng-template #noStudent>
+  <h3>Please select student !</h3>
+</ng-template>
+<br><br>
